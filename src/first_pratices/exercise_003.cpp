@@ -5,7 +5,7 @@
 #include <ctime>
 
 bool idadeRep(std:vector<int>idade){
-  int tam = idade.size(0;
+  int tam = idade.size();
   int menor = 200;
   for(int i = 0; i < tam; i++){
     if(idade[i] < menor){
