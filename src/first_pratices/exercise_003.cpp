@@ -3,8 +3,10 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
-bool idadeRep(std:vector<int>idade){
+
+bool idadeRep(std::vector<int>idade){
   int tam = idade.size();
   int menor = 200;
   for(int i = 0; i < tam; i++){
@@ -12,6 +14,7 @@ bool idadeRep(std:vector<int>idade){
       menor = idade[i];
     }
   }
+
   for(int i = 0; i < tam; i++){
     if(idade[i] == menor){
       return true;
@@ -28,7 +31,8 @@ bool idadeRep2(std::vector<int>idade){
 std::vector<int>randomVector(int length){
   std::vector<int>vector(length);
   std::srand(std::time(0));
-  for(int i = 0; i < len; i++){
+
+  for(int i = 0; i < length; i++){
     vector[i]=std::rand()%100;
   }
   return vector;
@@ -37,9 +41,11 @@ std::vector<int>randomVector(int length){
 std::chrono::duration<double>time(bool(*func)(std::vector<int>), std::vector<int>valor){
   auto start = std::chrono::high_resolution_clock::now();
   func(valor);
-  auto end = std::chrono::high_resolution+clock::now();
+  auto end = std::chrono::high_resolution_clock::now();
   return(end-start);
 }
+
+
 
 int main(){
   std::vector<int>n100 = randomVector(100);
@@ -59,4 +65,6 @@ int main(){
   std::cout << "Tempo de execução de idadeRep2 com 1000 elementos: " << duracao4.count() << " segundos.\n";
   std::cout << "Tempo de execução de idadeRep com 1000000 elementos: " << duracao5.count() << " segundos.\n";
   std::cout << "Tempo de execução de idadeRep2 com 1000000 elementos: " << duracao6.count() << " segundos.\n";  
+
+  return 0;
 }
